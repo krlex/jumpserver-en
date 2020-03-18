@@ -1,193 +1,192 @@
-# Jumpserver 多云环境下更好用的堡垒机
+# Jumpserver Better bastion machines in cloudy environments
 
 [![Python3](https://img.shields.io/badge/python-3.6-green.svg?style=plastic)](https://www.python.org/)
 [![Django](https://img.shields.io/badge/django-2.1-brightgreen.svg?style=plastic)](https://www.djangoproject.com/)
 [![Ansible](https://img.shields.io/badge/ansible-2.4.2.0-blue.svg?style=plastic)](https://www.ansible.com/)
 [![Paramiko](https://img.shields.io/badge/paramiko-2.4.1-green.svg?style=plastic)](http://www.paramiko.org/)
 
-Jumpserver 是全球首款完全开源的堡垒机，使用 GNU GPL v2.0 开源协议，是符合 4A 机制的运维安全审计系统。
+Jumpserver Is the world's first fully open source bastion machine, using GNU GPL v2.0 The open source protocol is an operation and maintenance security audit system that complies with the 4A mechanism.
 
-Jumpserver 使用 Python / Django 进行开发，遵循 Web 2.0 规范，配备了业界领先的 Web Terminal 方案，交互界面美观、用户体验好。
+Jumpserver use Python / Django Develop, follow Web 2.0 Specifications, equipped with industry-leading Web Terminal Scheme, beautiful interactive interface and good user experience.
 
-Jumpserver 采纳分布式架构，支持多机房跨区域部署，支持横向扩展，无资产数量及并发限制。
+Jumpserver adopt a distributed architecture, support multi-machine room cross-region deployment, support horizontal expansion, and have no restrictions on the number of assets and concurrency.
 
-改变世界，从一点点开始。
+Change the world, starting from a little bit.
 
-注: [KubeOperator](https://github.com/KubeOperator/KubeOperator) 是 Jumpserver 团队在 Kubernetes 领域的的又一全新力作，欢迎关注和使用。
+Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserver team in Kubernetes another new masterpiece in the field, welcome attention and use.
 
-## 核心功能列表
+## List of core functions
 
 <table>
   <tr>
-    <td rowspan="7">身份认证<br>Authentication</td>
-    <td rowspan="4">登录认证</td>
-    <td>资源统一登录与认证</td>
+    <td rowspan="7">Authentication<br>Authentication</td>
+    <td rowspan="4">Login authentication</td>
+    <td>Unified resource login and authentication</td>
   </tr>
   <tr>
-    <td>LDAP/AD 认证</td>
+    <td>LDAP/AD Certification</td>
   </tr>
   <tr>
-    <td>RADIUS 认证</td>
+    <td>RADIUS Certification</td>
   </tr>
   <tr>
-    <td>OpenID 认证（实现单点登录）</td>
+    <td>OpenID Authentication (implement single sign-on)</td>
   </tr>
   <tr>
-    <td rowspan="2">MFA认证</td>
-    <td>MFA 二次认证（Google Authenticator）</td>
+    <td rowspan="2">MFA Certification</td>
+    <td>MFA Secondary certification（Google Authenticator）</td>
   </tr>
   <tr>
-    <td>RADIUS 二次认证</td>
+    <td>RADIUS Secondary certification </td>
   </tr>
   <tr>
-    <td>登录复核（X-PACK）</td>
-    <td>用户登录行为受管理员的监管与控制</td>
+    <td>Login review（X-PACK）</td>
+    <td>User login behavior is supervised and controlled by administrator</td>
   </tr>
   <tr>
-    <td rowspan="11">账号管理<br>Account</td>
-    <td rowspan="2">集中账号</td>
-    <td>管理用户管理</td>
+    <td rowspan="11">Account management<br>Account</td>
+    <td rowspan="2">Centralized account</td>
+    <td>User management</td>
   </tr>
   <tr>
-    <td>系统用户管理</td>
+    <td>System user management</td>
   </tr>
   <tr>
-    <td rowspan="4">统一密码</td>
-    <td>资产密码托管</td>
+    <td rowspan="4">Unified password</td>
+    <td>Asset password escrow</td>
   </tr>
   <tr>
-    <td>自动生成密码</td>
+    <td>Generate password automatically</td>
   </tr>
   <tr>
-    <td>自动推送密码</td>
+    <td>Push password automatically</td>
   </tr>
   <tr>
-    <td>密码过期设置</td>
+    <td>Password expiration settings</td>
   </tr>
   <tr>
-    <td rowspan="2">批量改密（X-PACK）</td>
-    <td>定期批量改密</td>
+    <td rowspan="2">Batch change password（X-PACK）</td>
+    <td> Change the password regularly in batches </td>
   </tr>
   <tr>
-    <td>多种密码策略</td>
+    <td> Multiple password policies </td>
   </tr>
   <tr>
-    <td>多云纳管（X-PACK）</td>
-    <td>对私有云、公有云资产自动统一纳管</td>
+    <td>Cloudy Management（X-PACK）</td>
+    <td> Automatic unified management of private cloud and public cloud assets </td>
   </tr>
   <tr>
-    <td>收集用户（X-PACK）</td>
-    <td>自定义任务定期收集主机用户</td>
+    <td>Collect users（X-PACK）</td>
+    <td>Custom tasks periodically collect host users</td>
   </tr>
   <tr>
-    <td>密码匣子（X-PACK）</td>
-    <td>统一对资产主机的用户密码进行查看、更新、测试操作</td>
+    <td>Password box（X-PACK）</td>
+    <td>View, update, and test user passwords of asset hosts in a unified manner</td>
   </tr>
   <tr>
-    <td rowspan="15">授权控制<br>Authorization</td>
-    <td>多维授权</td>
-    <td>对用户、用户组、资产、资产节点、应用以及系统用户进行授权</td>
+    <td rowspan="15">Authorization control<br>Authorization</td>
+    <td> Multidimensional authorization </td>
+    <td> Authorize users, user groups, assets, asset nodes, applications, and system users </td>
   </tr>
   <tr>
     <td rowspan="4">资产授权</td>
-    <td>资产以树状结构进行展示</td>
+    <td> Assets are displayed in a tree structure </td>
   </tr>
   <tr>
-    <td>资产和节点均可灵活授权</td>
+    <td>Flexible authorization of assets and nodes </td>
   </tr>
   <tr>
-    <td>节点内资产自动继承授权</td>
+    <td>Assets within nodes automatically inherit authorization</td>
   </tr>
   <tr>
-    <td>子节点自动继承父节点授权</td>
+    <td>Child nodes automatically inherit parent node authorization </td>
   </tr>
   <tr>
-    <td rowspan="2">应用授权</td>
-    <td>实现更细粒度的应用级授权</td>
+    <td rowspan="2">Application authorization </td>
+    <td>Enable finer-grained application-level authorization</td>
   </tr>
   <tr>
-    <td>MySQL 数据库应用、RemoteApp 远程应用（X-PACK）</td>
+    <td>MySQL database application 、RemoteApp Remote application（X-PACK）</td>
   </tr>
   <tr>
-    <td>动作授权</td>
-    <td>实现对授权资产的文件上传、下载以及连接动作的控制</td>
+    <td>Action authorization</td>
+    <td> Implements control of file uploads, downloads, and connection actions for authorized assets</td>
   </tr>
   <tr>
-    <td>时间授权</td>
-    <td>实现对授权资源使用时间段的限制</td>
+    <td>Time authorization </td>
+    <td>Implement restrictions on the time period for which authorized resources are used </td>
   </tr>
   <tr>
-    <td>特权指令</td>
-    <td>实现对特权指令的使用（支持黑白名单）</td>
+    <td>Privileged instruction </td>
+    <td>Implement the use of privileged instructions (supports black and white lists) </td>
   </tr>
   <tr>
-    <td>命令过滤</td>
-    <td>实现对授权系统用户所执行的命令进行控制</td>
+    <td> Command filtering</td>
+    <td>Implements control over commands executed by authorized system users</td>
   </tr>
   <tr>
-    <td>文件传输</td>
-    <td>SFTP 文件上传/下载</td>
+    <td>file transfer</td>
+    <td>SFTP File upload / download</td>
   </tr>
   <tr>
-    <td>文件管理</td>
-    <td>实现 Web SFTP 文件管理</td>
+    <td>File management</td>
+    <td>Implement Web SFTP file management</td>
   </tr>
   <tr>
-    <td>工单管理（X-PACK）</td>
-    <td>支持对用户登录请求行为进行控制</td>
+    <td>Ticket Management（X-PACK</td>
+    <td>Support control of user login request behavior</td>
   </tr>
   <tr>
-    <td>组织管理（X-PACK）</td>
-    <td>实现多租户管理与权限隔离</td>
+    <td>Organization Management（X-PACK</td>
+    <td>Implement multi-tenant management and permission isolation</td>
   </tr>
   <tr>
-    <td rowspan="7">安全审计<br>Audit</td>
-    <td>操作审计</td>
-    <td>用户操作行为审计</td>
+    <td rowspan="7">security audit <br>Audit</td>
+    <td> Operational audit</td>
+    <td>User operation behavior audit</td>
   </tr>
   <tr>
-    <td rowspan="2">会话审计</td>
-    <td>在线会话内容审计</td>
+    <td rowspan="2">Session audit</td>
+    <td>Online session content audit</td>
   </tr>
   <tr>
-    <td>历史会话内容审计</td>
+    <td>Audit history content</td>
   </tr>
   <tr>
     <td rowspan="2">录像审计</td>
-    <td>支持对 Linux、Windows 等资产操作的录像进行回放审计</td>
+    <td> Support playback auditing of recordings of asset operations such as Linux and Windows</td>
   </tr>
   <tr>
-    <td>支持对 RemoteApp（X-PACK）、MySQL 等应用操作的录像进行回放审计</td>
+    <td> Supports playback auditing of remoteApp (X-PACK), MySQL and other application operations</td>
   </tr>
   <tr>
-    <td>指令审计</td>
-    <td>支持对资产和应用等操作的命令进行审计</td>
+    <td>Instruction audit</td>
+    <td>Supports auditing of commands such as assets and applications</td>
   </tr>
   <tr>
-    <td>文件传输</td>
-    <td>可对文件的上传、下载记录进行审计</td>
+    <td>file transfer</td>
+    <td>Audit of file upload and download records</td>
   </tr>
 </table>
 
-## 安装及使用指南
+## Installation and use guide
 
--  [Docker 快速安装文档](http://docs.jumpserver.org/zh/docs/dockerinstall.html)
--  [Step by Step 安装文档](http://docs.jumpserver.org/zh/docs/step_by_step.html)
--  [完整文档](http://docs.jumpserver.org)
+-  [Docker Quick installation documentation](http://docs.jumpserver.org/zh/docs/dockerinstall.html)
+-  [Step by Step Installation documentation](http://docs.jumpserver.org/zh/docs/step_by_step.html)
+-  [Full documentation](http://docs.jumpserver.org)
 
-## 演示视频和截屏
+## Demo videos and screenshots
 
-我们提供了演示视频和系统截图可以让你快速了解 Jumpserver：
+We provide demo videos and system screenshots to let you quickly understand Jumpserver：
 
-- [演示视频](https://jumpserver.oss-cn-hangzhou.aliyuncs.com/jms-media/%E3%80%90%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91%E3%80%91Jumpserver%20%E5%A0%A1%E5%9E%92%E6%9C%BA%20V1.5.0%20%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91%20-%20final.mp4)
-- [系统截图](http://docs.jumpserver.org/zh/docs/snapshot.html)
+- [Demo video](https://jumpserver.oss-cn-hangzhou.aliyuncs.com/jms-media/%E3%80%90%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91%E3%80%91Jumpserver%20%E5%A0%A1%E5%9E%92%E6%9C%BA%20V1.5.0%20%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91%20-%20final.mp4)
+- [System screenshot] (http://docs.jumpserver.org/zh/docs/snapshot.html)
 
 ## SDK
 
-我们编写了一些SDK，供您的其它系统快速和 Jumpserver API 交互：
-
-- [Python](https://github.com/jumpserver/jumpserver-python-sdk) Jumpserver 其它组件使用这个 SDK 完成交互
-- [Java](https://github.com/KaiJunYan/jumpserver-java-sdk.git) 恺珺同学提供的 Java 版本的 SDK
+We have written some SDKs for your other systems to quickly interact with the Jumpserver API:
+- [Python](https://github.com/jumpserver/jumpserver-python-sdk) Jumpserver Other components use this SDK to interact
+- [Java](https://github.com/KaiJunYan/jumpserver-java-sdk.git) Java version of SDK provided by Kaifeng
 
 ## License & Copyright
 
