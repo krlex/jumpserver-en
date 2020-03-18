@@ -19,7 +19,7 @@ Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserve
 
 <table>
   <tr>
-    <td rowspan="7">Authentication<br>Authentication</td>
+    <td rowspan="7">Authentication</td>
     <td rowspan="4">Login authentication</td>
     <td>Unified resource login and authentication</td>
   </tr>
@@ -44,7 +44,7 @@ Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserve
     <td>User login behavior is supervised and controlled by administrator</td>
   </tr>
   <tr>
-    <td rowspan="11">Account management<br>Account</td>
+    <td rowspan="11">Account management</td>
     <td rowspan="2">Centralized account</td>
     <td>User management</td>
   </tr>
@@ -65,14 +65,14 @@ Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserve
     <td>Password expiration settings</td>
   </tr>
   <tr>
-    <td rowspan="2">Batch change password（X-PACK）</td>
-    <td> Change the password regularly in batches </td>
+    <td rowspan="2">Batch change password（X-PACK</td>
+    <td>Change the password regularly in batches</td>
   </tr>
   <tr>
-    <td> Multiple password policies </td>
+    <td>Multiple password policies</td>
   </tr>
   <tr>
-    <td>Cloudy Management（X-PACK）</td>
+    <td>Cloudy Management（X-PACK</td>
     <td> Automatic unified management of private cloud and public cloud assets </td>
   </tr>
   <tr>
@@ -84,12 +84,12 @@ Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserve
     <td>View, update, and test user passwords of asset hosts in a unified manner</td>
   </tr>
   <tr>
-    <td rowspan="15">Authorization control<br>Authorization</td>
+    <td rowspan="15">Authorization control</td>
     <td> Multidimensional authorization </td>
     <td> Authorize users, user groups, assets, asset nodes, applications, and system users </td>
   </tr>
   <tr>
-    <td rowspan="4">资产授权</td>
+    <td rowspan="4">Asset authorization</td>
     <td> Assets are displayed in a tree structure </td>
   </tr>
   <tr>
@@ -113,11 +113,11 @@ Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserve
     <td> Implements control of file uploads, downloads, and connection actions for authorized assets</td>
   </tr>
   <tr>
-    <td>Time authorization </td>
+    <td>Time authorization</td>
     <td>Implement restrictions on the time period for which authorized resources are used </td>
   </tr>
   <tr>
-    <td>Privileged instruction </td>
+    <td>Privileged instruction</td>
     <td>Implement the use of privileged instructions (supports black and white lists) </td>
   </tr>
   <tr>
@@ -141,7 +141,7 @@ Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserve
     <td>Implement multi-tenant management and permission isolation</td>
   </tr>
   <tr>
-    <td rowspan="7">security audit <br>Audit</td>
+    <td rowspan="7">Security audit</td>
     <td> Operational audit</td>
     <td>User operation behavior audit</td>
   </tr>
@@ -153,7 +153,7 @@ Note: [KubeOperator](https://github.com/KubeOperator/KubeOperator) yes Jumpserve
     <td>Audit history content</td>
   </tr>
   <tr>
-    <td rowspan="2">录像审计</td>
+    <td rowspan="2">Asset authorization</td>
     <td> Support playback auditing of recordings of asset operations such as Linux and Windows</td>
   </tr>
   <tr>
